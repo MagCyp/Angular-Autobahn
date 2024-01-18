@@ -1,0 +1,35 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+hr {
+  width: 100%;
+}
+.events {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.expansion-accordion {
+  margin-top: 10px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.expansion-panel + .expansion-panel {
+  margin-top: 15px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}

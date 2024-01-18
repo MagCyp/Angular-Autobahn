@@ -16,4 +16,8 @@
       [aria-label]="tab.ariaLabel"
     ></mat-tab>
   </mat-tab-group>
+  <app-details-list *ngIf="activeTab.length > 0 && activeRoad.length > 0"
+    [details]="activeTab"
+    [road]="activeRoad"
+  ></app-details-list>
 </div>

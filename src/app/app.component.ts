@@ -7,11 +7,12 @@ import {
   MatTabGroup,
   MatTabsModule,
 } from '@angular/material/tabs';
+import { DetailsListComponent } from './details-list/details-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatTabsModule],
+  imports: [CommonModule, MatListModule, MatTabsModule, DetailsListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -39,7 +40,7 @@ export class AppComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataService.getRoads().subscribe(
       (roads) => {
         this.roads = roads;

@@ -1,0 +1,44 @@
+<div *ngIf="loading" class="events">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-accordion
+  class="expansion-accordion"
+  *ngFor="let element of paginatedData"
+>
+  <mat-expansion-panel class="expansion-panel">
+    <mat-expansion-panel-header
+      expandedHeight="fit-content"
+      collapsedHeight="fit-content"
+    >
+      <div class="content-container">
+        <div class="header-container">
+          <div>
+            <h2 class="title">
+              {{ element.title }}
+            </h2>
+            <h3 class="subtitle">
+              {{ element.subtitle }}
+            </h3>
+          </div>
+          {{ element.icon }}
+        </div>
+        <hr />
+        <div
+          class="description"
+          *ngFor="let description of element.description"
+        >
+          <h4 [innerHTML]="sanitizeDescription(description)"></h4>
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator
+  [pageSize]="pageSize"
+  [pageIndex]="pageIndex"
+  [pageSizeOptions]="pageSizeOptions"
+  [length]="length"
+  showFirstLastButtons
+  (page)="pageChanged($event)"
+></mat-paginator>
+<div *ngIf="data?.length === 0" class="events"><h1>No records found</h1></div>
