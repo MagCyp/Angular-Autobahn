@@ -7,13 +7,11 @@ import {
   MatTabGroup,
   MatTabsModule,
 } from '@angular/material/tabs';
-import { DetailsTableComponent } from './details-table/details-table.component';
-import { DetailsListComponent } from './details-list/details-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatTabsModule, DetailsTableComponent, DetailsListComponent],
+  imports: [CommonModule, MatListModule, MatTabsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -30,17 +28,15 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    this.dataService
-      .getData<{ roads: string[] }>('https://verkehr.autobahn.de/o/autobahn/')
-      .subscribe(
-        (responseData: { roads: string[] }) => {
-          this.roads = responseData.roads;
-          this.activeRoad = responseData.roads[0];
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+    this.dataService.getRoads().subscribe(
+      (roads) => {
+        this.roads = roads;
+        this.activeRoad = roads[0];
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   ngAfterViewInit(): void {
@@ -56,6 +52,5 @@ export class AppComponent {
 
   setElement(road: string): void {
     this.activeRoad = road;
-    console.log(this.activeRoad);
   }
 }
