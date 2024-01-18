@@ -1,1 +1,28 @@
-<p>{{title}}</p>
+<div class="main-container">
+  <mat-action-list class="item-list">
+    <mat-list-item
+      *ngFor="let road of roads"
+      class="list-item"
+      (click)="setElement(road)"
+      [ngClass]="{ 'active-item': road === activeRoad }"
+    >
+      {{ road }}
+    </mat-list-item>
+  </mat-action-list>
+  <mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Road works" aria-label="roadworks"></mat-tab>
+    <mat-tab label="Webcams" aria-label="webcam"></mat-tab>
+    <mat-tab label="Parking lorry" aria-label="parking_lorry"></mat-tab>
+    <mat-tab label="Warning" aria-label="warning"></mat-tab>
+    <mat-tab label="Closure" aria-label="closure"></mat-tab>
+    <mat-tab
+      label="Electric charging station"
+      aria-label="electric_charging_station"
+    ></mat-tab>
+  </mat-tab-group>
+  <app-details-list
+    [details]="activeTab"
+    [road]="activeRoad"
+  ></app-details-list>
+</div>
+

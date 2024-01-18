@@ -1,0 +1,22 @@
+.list-item {
+  text-align: center;
+  cursor: pointer;
+  min-width: fit-content;
+  height: 50px;
+  padding: 15px;
+}
+
+.item-list {
+  display: flex;
+  padding: 0;
+  overflow: auto;
+}
+
+.active-item {
+  background-color: #a6d9e8;
+}
+
+.main-container{
+  margin: 0 auto;
+  width: 70%;
+}
