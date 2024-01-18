@@ -18,6 +18,18 @@ import {
 export class AppComponent {
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
+  tabs: { label: string; ariaLabel: string }[] = [
+    { label: 'Road works', ariaLabel: 'roadworks' },
+    { label: 'Webcams', ariaLabel: 'webcam' },
+    { label: 'Parking lorry', ariaLabel: 'parking_lorry' },
+    { label: 'Warning', ariaLabel: 'warning' },
+    { label: 'Closure', ariaLabel: 'closure' },
+    {
+      label: 'Electric charging station',
+      ariaLabel: 'electric_charging_station',
+    },
+  ];
+
   roads: string[] = [];
   activeRoad: string = '';
   activeTab: string = '';
