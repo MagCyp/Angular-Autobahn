@@ -13,7 +13,16 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMKVnIfxpLYycsppfPn6mKZGOfSOKCsAg"></script>
+    <script src="./assets/config.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        var googleMapsScript = document.createElement("script");
+        googleMapsScript.src =
+          "https://maps.googleapis.com/maps/api/js?key=" + key.googleMapsApiKey;
+        document.head.appendChild(googleMapsScript);
+      });
+    </script>
   </head>
   <body class="mat-typography">
     <app-root></app-root>
