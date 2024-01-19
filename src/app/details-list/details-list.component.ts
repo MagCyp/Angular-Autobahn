@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PageEvent, MatPaginatorModule } from '@angular/material/paginator';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-details-list',
@@ -15,6 +16,7 @@ import { PageEvent, MatPaginatorModule } from '@angular/material/paginator';
     CommonModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MapComponent
   ],
   templateUrl: './details-list.component.html',
   styleUrl: './details-list.component.css',
@@ -30,6 +32,11 @@ export class DetailsListComponent {
   pageSize: number = this.pageSizeOptions[0];
   pageIndex: number = 0;
   length: number = 0;
+
+  someFunc(element: any){
+    console.log(element);
+    
+  }
 
   constructor(
     private dataService: DataService,
