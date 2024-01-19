@@ -33,11 +33,6 @@ export class DetailsListComponent {
   pageIndex: number = 0;
   length: number = 0;
 
-  someFunc(element: any){
-    console.log(element);
-    
-  }
-
   constructor(
     private dataService: DataService,
     private sanitizer: DomSanitizer
