@@ -1,0 +1,9 @@
+version: '3'
+services:
+  angular-app:
+    build: .
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+    restart: always

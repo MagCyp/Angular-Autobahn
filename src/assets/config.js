@@ -1,3 +1,3 @@
 const key = {
-    googleMapsApiKey: '' //API_KEY there
+    googleMapsApiKey: 'someApiKey' //API_KEY there
 }
